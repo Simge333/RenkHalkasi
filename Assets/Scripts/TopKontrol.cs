@@ -15,6 +15,10 @@ public class TopKontrol : MonoBehaviour
     
     public static int score = 0;
 
+    public GameObject halka, renkTekeri;
+
+
+
     public string mevcutRenk;
     public Color topunRengi;
     public Color turkuaz, sari, mor, pembe;
@@ -24,6 +28,7 @@ public class TopKontrol : MonoBehaviour
     }
     private void Start()
     {
+        
         scoreText.text = "Score: " + score;
         RastgeleBirRenkBelirle();
     }
@@ -57,13 +62,18 @@ public class TopKontrol : MonoBehaviour
         }
         if (collision.tag != mevcutRenk && collision.tag !="PuanArttirici" && collision.tag != "RenkTekeri")
         {
+            score = 0;//eğer can sistemi yapacaksanız burada yapabilirisiniz
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);   
         }
-        if (collision.tag=="PuanArttirici")
+        if (collision.tag == "PuanArttirici")
         {
             score += 5;
-            scoreText.text = "Score" + score;
+            scoreText.text = "Score: " + score;
             Destroy(collision.gameObject);
+
+            Instantiate(halka, new Vector3(transform.position.x, transform.position.y + 8f, transform.position.z), Quaternion.identity);//ne oluşşun,neredeoluşsun,Rotation
+
+            Instantiate(renkTekeri, new Vector3(transform.position.x, transform.position.y + 11.7f, transform.position.z), Quaternion.identity);//ne oluşşun,neredeoluşsun,Rotation
         }
     }
     void RastgeleBirRenkBelirle()
