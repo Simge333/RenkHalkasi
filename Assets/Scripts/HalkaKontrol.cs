@@ -7,10 +7,7 @@ public class HalkaKontrol : MonoBehaviour
     public float donmeHizi;
     public bool soladon = true;
 
-    private void Start()
-    {
-        
-    }
+    
     private void FixedUpdate()
     {
         if (soladon)//sol
@@ -21,5 +18,7 @@ public class HalkaKontrol : MonoBehaviour
         {
             transform.Rotate(0f, 0f, -donmeHizi * Time.deltaTime);
         }
+        
     }
+   
 }

@@ -9,9 +9,16 @@ public class TopKontrol : MonoBehaviour
 
     bool basildiMi = false;//input yaptı mı onu anlamak için
 
+    public string mevcutRenk;
+    public Color topunRengi;
+    public Color turkuaz, sari, mor, pembe;
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
+    }
+    private void Start()
+    {
+        RastgeleBirRenkBelirle();
     }
     private void Update()
     {
@@ -31,6 +38,55 @@ public class TopKontrol : MonoBehaviour
             rb.velocity = Vector2.up * ziplamaKuvveti;
         }
         
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.tag=="RenkTekeri")
+        {
+            RastgeleBirRenkBelirle();
+            Destroy(collision.gameObject);
+            return;//üsttekini yaptıysan çık ontriggerdan
+        }
+        if (collision.tag != mevcutRenk)
+        {
+             
+        }
+    }
+    void RastgeleBirRenkBelirle()
+    {
+       // int ilk, son=0;
+        
+        int rastgeleSayi = Random.Range(0, 4);//0,1,2,3
+        //ilk = rastgeleSayi;
+        
+        //if (son==ilk)
+        //{
+          //  RastgeleBirRenkBelirle();
+       // }
+        switch (rastgeleSayi)
+        {
+            case 0:
+                mevcutRenk = "Turkuaz";
+                topunRengi = turkuaz;
+                break;
+            case 1:
+                mevcutRenk = "Sari";
+                topunRengi = sari;
+                break;
+            case 2:
+                mevcutRenk = "Pembe";
+                topunRengi = pembe;
+                break;
+            case 3:
+                mevcutRenk = "Mor";
+                topunRengi = mor;
+                break;
+            default:
+                break;
+        }
+        //son = ilk;
+        GetComponent<SpriteRenderer>().color = topunRengi;
     }
 
 }//class
