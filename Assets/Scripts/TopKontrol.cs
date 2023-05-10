@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class TopKontrol : MonoBehaviour
 {
@@ -8,6 +10,10 @@ public class TopKontrol : MonoBehaviour
     public float ziplamaKuvveti = 3f;//ne kadar zıplayacak
 
     bool basildiMi = false;//input yaptı mı onu anlamak için
+
+    [SerializeField] Text scoreText;
+    
+    public static int score = 0;
 
     public string mevcutRenk;
     public Color topunRengi;
@@ -18,6 +24,7 @@ public class TopKontrol : MonoBehaviour
     }
     private void Start()
     {
+        scoreText.text = "Score: " + score;
         RastgeleBirRenkBelirle();
     }
     private void Update()
@@ -48,9 +55,15 @@ public class TopKontrol : MonoBehaviour
             Destroy(collision.gameObject);
             return;//üsttekini yaptıysan çık ontriggerdan
         }
-        if (collision.tag != mevcutRenk)
+        if (collision.tag != mevcutRenk && collision.tag !="PuanArttirici" && collision.tag != "RenkTekeri")
         {
-             
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);   
+        }
+        if (collision.tag=="PuanArttirici")
+        {
+            score += 5;
+            scoreText.text = "Score" + score;
+            Destroy(collision.gameObject);
         }
     }
     void RastgeleBirRenkBelirle()
