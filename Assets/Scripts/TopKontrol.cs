@@ -28,13 +28,15 @@ public class TopKontrol : MonoBehaviour
     }
     private void Start()
     {
+      
 		bestScoreText.text = "Best Score: " + PlayerPrefs.GetInt("bestScore").ToString();
 		scoreText.text = "Score: " + score;
         RastgeleBirRenkBelirle();
     }
     private void Update()
     {
-        if (Input.GetMouseButtonDown(0))
+		
+		if (Input.GetMouseButtonDown(0))
         {
             basildiMi = true;
         }
@@ -45,7 +47,12 @@ public class TopKontrol : MonoBehaviour
     }
     private void FixedUpdate()
     {
-        if (basildiMi)
+		//if (Input.touchCount <= 0)
+		//{
+		//	rb.gravityScale = 0;
+		//	return;
+		//}
+		if (basildiMi)
         {
             rb.velocity = Vector2.up * ziplamaKuvveti;
         }
