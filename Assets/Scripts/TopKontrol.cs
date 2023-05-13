@@ -12,8 +12,9 @@ public class TopKontrol : MonoBehaviour
     bool basildiMi = false;//input yaptı mı onu anlamak için
 
     [SerializeField] Text scoreText, bestScoreText;
-    
-    public static int score = 0, bestScore = 0;
+    [SerializeField] GameObject messagePAnel;
+
+	public static int score = 0, bestScore = 0;
 
     public GameObject halka, renkTekeri;
 
@@ -130,5 +131,13 @@ public class TopKontrol : MonoBehaviour
         //son = ilk;
         GetComponent<SpriteRenderer>().color = topunRengi;
     }
+    public void MessageButton()
+    {
+        messagePAnel.SetActive(true);
+    }
+	public void QuitMessageButton()
+	{
+		messagePAnel.SetActive(false);
+	}
 
 }//class
