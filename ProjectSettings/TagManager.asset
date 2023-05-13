@@ -10,6 +10,7 @@ TagManager:
   - Mor
   - RenkTekeri
   - PuanArttirici
+  - outside
   layers:
   - Default
   - TransparentFX

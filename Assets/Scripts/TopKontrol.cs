@@ -11,9 +11,9 @@ public class TopKontrol : MonoBehaviour
 
     bool basildiMi = false;//input yaptı mı onu anlamak için
 
-    [SerializeField] Text scoreText;
+    [SerializeField] Text scoreText, bestScoreText;
     
-    public static int score = 0;
+    public static int score = 0, bestScore = 0;
 
     public GameObject halka, renkTekeri;
 
@@ -28,8 +28,8 @@ public class TopKontrol : MonoBehaviour
     }
     private void Start()
     {
-        
-        scoreText.text = "Score: " + score;
+		bestScoreText.text = "Best Score: " + PlayerPrefs.GetInt("bestScore").ToString();
+		scoreText.text = "Score: " + score;
         RastgeleBirRenkBelirle();
     }
     private void Update()
@@ -69,13 +69,25 @@ public class TopKontrol : MonoBehaviour
         {
             score += 5;
             scoreText.text = "Score: " + score;
-            Destroy(collision.gameObject);
+			if (score >= bestScore)
+			{
+				bestScore = score;
+				PlayerPrefs.SetInt("bestScore", score);
+			}
+			Destroy(collision.gameObject);
 
             Instantiate(halka, new Vector3(transform.position.x, transform.position.y + 8f, transform.position.z), Quaternion.identity);//ne oluşşun,neredeoluşsun,Rotation
 
             Instantiate(renkTekeri, new Vector3(transform.position.x, transform.position.y + 11.7f, transform.position.z), Quaternion.identity);//ne oluşşun,neredeoluşsun,Rotation
         }
-    }
+		if (collision.gameObject.CompareTag("outside"))
+		{
+			score = 0;
+			SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+            
+
+		}
+	}
     void RastgeleBirRenkBelirle()
     {
        // int ilk, son=0;
