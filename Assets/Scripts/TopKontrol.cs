@@ -19,10 +19,11 @@ public class TopKontrol : MonoBehaviour
     public GameObject halka, renkTekeri;
 
 
-
+    bool started = false;
     public string mevcutRenk;
     public Color topunRengi;
     public Color turkuaz, sari, mor, pembe;
+  
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -36,10 +37,10 @@ public class TopKontrol : MonoBehaviour
     }
     private void Update()
     {
-		
 		if (Input.GetMouseButtonDown(0))
         {
             basildiMi = true;
+            started= true;
         }
         if (Input.GetMouseButtonUp(0))
         {
@@ -48,15 +49,22 @@ public class TopKontrol : MonoBehaviour
     }
     private void FixedUpdate()
     {
-		//if (Input.touchCount <= 0)
-		//{
-		//	rb.gravityScale = 0;
-		//	return;
-		//}
+        //if (Input.touchCount <= 0)
+        //{
+        //	rb.gravityScale = 0;
+        //	return;
+        //}
+        if (!started)
+        {
+            rb.gravityScale = 0f;
+            return;
+        }
 		if (basildiMi)
         {
+            rb.gravityScale = 0.7f;
             rb.velocity = Vector2.up * ziplamaKuvveti;
         }
+        
         
     }
 
