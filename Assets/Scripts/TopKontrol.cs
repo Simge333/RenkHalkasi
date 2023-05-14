@@ -62,18 +62,13 @@ public class TopKontrol : MonoBehaviour
            
             
         }
-       
             if (basildiMi)
             {
                 messageText.enabled = false;
                 rb.gravityScale = 0.7f;
                 rb.velocity = Vector2.up * ziplamaKuvveti;
-            }
-
-       
-		
-        
-        
+            }                 
+		     
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -108,21 +103,14 @@ public class TopKontrol : MonoBehaviour
 		{
 			score = 0;
 			SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
-            
-
+          
 		}
 	}
     void RastgeleBirRenkBelirle()
     {
-       // int ilk, son=0;
-        
+             
         int rastgeleSayi = Random.Range(0, 4);//0,1,2,3
-        //ilk = rastgeleSayi;
         
-        //if (son==ilk)
-        //{
-          //  RastgeleBirRenkBelirle();
-       // }
         switch (rastgeleSayi)
         {
             case 0:
@@ -147,10 +135,7 @@ public class TopKontrol : MonoBehaviour
         //son = ilk;
         GetComponent<SpriteRenderer>().color = topunRengi;
     }
-    IEnumerator bekle()
-    {
-        yield return new WaitForSeconds(10f);
-    }
+ 
     public void MessageButton()
     {
         messagePAnel.SetActive(true);

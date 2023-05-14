@@ -1440,6 +1440,7 @@ MonoBehaviour:
   ziplamaKuvveti: 3
   scoreText: {fileID: 1973877046}
   bestScoreText: {fileID: 70502315}
+  messageText: {fileID: 1075985067}
   messagePAnel: {fileID: 997124199}
   halka: {fileID: 4063350591642156412, guid: 235b07a7e7eca468ba09503ab40dc2db, type: 3}
   renkTekeri: {fileID: 6241920238318399673, guid: bcb56b51e11134904bdfd43628e9eef3, type: 3}
