@@ -821,6 +821,7 @@ GameObject:
   - component: {fileID: 1075985066}
   - component: {fileID: 1075985068}
   - component: {fileID: 1075985067}
+  - component: {fileID: 1075985069}
   m_Layer: 5
   m_Name: StarMessageText
   m_TagString: Untagged
@@ -861,7 +862,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 0.9283019, b: 0.9283019, a: 1}
+  m_Color: {r: 0.9405041, g: 1, b: 0.92941177, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -890,6 +891,26 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1075985065}
   m_CullTransparentMesh: 1
+--- !u!95 &1075985069
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1075985065}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 8e361adbcba9d2a48ae3c60ab95e76f2, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &1185551842
 GameObject:
   m_ObjectHideFlags: 0

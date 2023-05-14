@@ -11,7 +11,7 @@ public class TopKontrol : MonoBehaviour
 
     bool basildiMi = false;//input yaptı mı onu anlamak için
 
-    [SerializeField] Text scoreText, bestScoreText;
+    [SerializeField] Text scoreText, bestScoreText,messageText;
     [SerializeField] GameObject messagePAnel;
 
 	public static int score = 0, bestScore = 0;
@@ -61,6 +61,7 @@ public class TopKontrol : MonoBehaviour
         }
 		if (basildiMi)
         {
+            messageText.enabled = false;
             rb.gravityScale = 0.7f;
             rb.velocity = Vector2.up * ziplamaKuvveti;
         }
