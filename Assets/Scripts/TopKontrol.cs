@@ -18,7 +18,7 @@ public class TopKontrol : MonoBehaviour
 
     public GameObject halka, renkTekeri;
 
-
+ 
     bool started = false;
     public string mevcutRenk;
     public Color topunRengi;
@@ -55,16 +55,23 @@ public class TopKontrol : MonoBehaviour
         //	return;
         //}
         if (!started)
-        {
+        {           
             rb.gravityScale = 0f;
-            return;
+		
+			return;
+           
+            
         }
-		if (basildiMi)
-        {
-            messageText.enabled = false;
-            rb.gravityScale = 0.7f;
-            rb.velocity = Vector2.up * ziplamaKuvveti;
-        }
+       
+            if (basildiMi)
+            {
+                messageText.enabled = false;
+                rb.gravityScale = 0.7f;
+                rb.velocity = Vector2.up * ziplamaKuvveti;
+            }
+
+       
+		
         
         
     }
@@ -140,13 +147,19 @@ public class TopKontrol : MonoBehaviour
         //son = ilk;
         GetComponent<SpriteRenderer>().color = topunRengi;
     }
+    IEnumerator bekle()
+    {
+        yield return new WaitForSeconds(10f);
+    }
     public void MessageButton()
     {
         messagePAnel.SetActive(true);
+        Time.timeScale= 0;
     }
 	public void QuitMessageButton()
 	{
 		messagePAnel.SetActive(false);
+        Time.timeScale= 1;
 	}
 
 }//class
